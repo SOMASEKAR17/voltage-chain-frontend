@@ -89,7 +89,7 @@ export default function HeroSection() {
         </nav>
 
         {/* Left side - Title and Subtitle */}
-          <div className="flex absolute z-12 bottom-20 left-10 flex-col justify-center gap-6 max-w-2xl">
+          <div className="flex absolute z-12 bottom-10 left-10 flex-col justify-center gap-6 max-w-2xl">
             <h1 className="font-avant text-7xl italic text-white leading-tight">
               VoltageChain
             </h1>
