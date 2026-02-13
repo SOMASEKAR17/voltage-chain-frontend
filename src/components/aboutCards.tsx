@@ -22,7 +22,6 @@ export default function AboutCards() {
   return (
     <section className="w-full h-screen relative py-20 px-30 overflow-hidden bg-black">
       <div className="max-w-7xl mx-auto">
-        {/* Section Title */}
         <div className="mb-16 relative z-20">
           <h2 className="font-avant text-4xl italic text-white mb-4">
             From Waste to Worth in 3 Steps.
@@ -34,8 +33,6 @@ export default function AboutCards() {
 
         <img src="gradient.png" alt=""  className="absolute top-0 z-11 right-0"/>
         <img src="gradient.png" alt=""  className="absolute bottom-0 z-11 left-0 rotate-180"/>
-
-        {/* Cards Grid */}
         <div className="grid z-20 relative grid-cols-3 gap-8">
           {cards.map((card, index) => (
             <GlassSurface
