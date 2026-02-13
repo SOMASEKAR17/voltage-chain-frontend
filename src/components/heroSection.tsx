@@ -11,7 +11,7 @@ export default function HeroSection() {
 
       <img src="gradient.png" alt=""  className="absolute top-0 z-11 right-0 scale-50 translate-x-[25%] -translate-y-[30%]"/>
 
-      <nav className="w-full fixed z-20 pt-8 px-8 flex items-center justify-between">
+      <nav className="w-full fixed z-30 pt-8 px-8 flex items-center justify-between">
         <GlassSurface
           width={50}
           height={50}

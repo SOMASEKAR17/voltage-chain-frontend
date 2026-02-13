@@ -31,7 +31,8 @@ export default function AboutCards() {
           </p>
         </div>
 
-        <div className="h-screen absolute z-12 bg-linear-to-b from-black via-black/90 to-transparent -translate-y-100 w-full"></div>
+        <div className="h-screen absolute z-12 bg-linear-to-b from-black via-black/90 to-transparent -translate-y-110 w-full"></div>
+        <div className="h-screen absolute z-12 bg-linear-to-t from-black via-black/90 to-transparent translate-y-8 w-full"></div>
 
         <img src="gradient.png" alt=""  className="absolute top-10 z-11 right-0"/>
         <img src="gradient.png" alt=""  className="absolute bottom-0 z-11 left-0 rotate-180"/>
