@@ -20,9 +20,9 @@ export default function AboutCards() {
   ];
 
   return (
-    <section className="w-full h-screen relative py-20 px-30 overflow-hidden bg-black">
-      <div className="max-w-7xl mx-auto">
-        <div className="mb-16 relative z-20">
+    <section className="w-full h-screen relative py-20 overflow-hidden bg-black">
+      <div className="w-full">
+        <div className="mb-16 ml-20 relative z-20">
           <h2 className="font-avant text-4xl italic text-white mb-4">
             From Waste to Worth in 3 Steps.
           </h2>
@@ -31,9 +31,11 @@ export default function AboutCards() {
           </p>
         </div>
 
-        <img src="gradient.png" alt=""  className="absolute top-0 z-11 right-0"/>
+        <div className="h-screen absolute z-12 bg-linear-to-b from-black via-black/90 to-transparent -translate-y-100 w-full"></div>
+
+        <img src="gradient.png" alt=""  className="absolute top-10 z-11 right-0"/>
         <img src="gradient.png" alt=""  className="absolute bottom-0 z-11 left-0 rotate-180"/>
-        <div className="grid z-20 relative grid-cols-3 gap-8">
+        <div className="grid z-20 relative grid-cols-3 pl-30">
           {cards.map((card, index) => (
             <GlassSurface
               key={index}
