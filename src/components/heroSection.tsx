@@ -16,14 +16,14 @@ export default function HeroSection() {
           width={50}
           height={50}
           borderRadius={100}
-          backgroundOpacity={0.2}
+          backgroundOpacity={0.5}
           saturation={1}
           borderWidth={0.07}
           displace={2}
           distortionScale={-180}
-          blur={5}
+          blur={11}
           brightness={50}
-          opacity={0.1}
+          opacity={3}
           mixBlendMode="screen"
         >
           <div className="flex w-15 items-center gap-1">
