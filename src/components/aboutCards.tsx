@@ -39,7 +39,7 @@ export default function AboutCards() {
         <div className="grid z-20 relative grid-cols-3 pl-30">
           {cards.map((card, index) => (
             
-              <div className="flex rounded-4xl w-[250px] h-[280px] flex-col gap-4 p-6 shadow justify-between">
+              <div key={index} className="flex rounded-4xl w-[250px] h-[280px] flex-col gap-4 p-6 shadow justify-between">
                 <h3 className="font-avant text-xl font-bold text-white">
                   {card.title}
                 </h3>

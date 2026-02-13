@@ -11,7 +11,7 @@ export default function SaveScores() {
         <img src="gradient.png" alt=""  className="absolute top-10 z-11 right-0"/>
         <img src="gradient.png" alt=""  className="absolute bottom-0 z-11 left-0 rotate-180"/>
 
-        <img src="score.svg" alt=""  className="absolute left-[50%] -translate-x-[50%] translate-y-[35%] scale-60 z-15 bottom-[50%]"/>
+        <img src="score.svg" alt=""  className="absolute left-[50%] -translate-x-[50%] translate-y-[30%] scale-60 z-15 bottom-[50%]"/>
         
         
         
