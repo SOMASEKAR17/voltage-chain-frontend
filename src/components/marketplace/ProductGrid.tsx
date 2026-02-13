@@ -22,7 +22,7 @@ const ProductCard: React.FC<ProductCardProps> = ({
           className=" mx-auto mt-10 w-full h-full rounded-lg bg-black object-cover "
         />
       </div>
-      <div className="p-3">
+      <div className="p-3 font-avant">
         <h4 className="text-white text-sm font-semibold mb-1 line-clamp-2">
           {title}
         </h4>
