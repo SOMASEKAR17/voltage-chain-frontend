@@ -38,22 +38,8 @@ export default function AboutCards() {
         <img src="gradient.png" alt=""  className="absolute bottom-0 z-11 left-0 rotate-180"/>
         <div className="grid z-20 relative grid-cols-3 pl-30">
           {cards.map((card, index) => (
-            <GlassSurface
-              key={index}
-              width={250}
-              height={280}
-              borderRadius={20}
-              backgroundOpacity={0.2}
-              saturation={1}
-              borderWidth={0.07}
-              displace={2}
-              distortionScale={-180}
-              blur={5}
-              brightness={50}
-              opacity={0.1}
-              mixBlendMode="screen"
-            >
-              <div className="flex flex-col gap-4 p-6 h-full justify-between">
+            
+              <div className="flex rounded-4xl w-[250px] h-[280px] flex-col gap-4 p-6 shadow justify-between">
                 <h3 className="font-avant text-xl font-bold text-white">
                   {card.title}
                 </h3>
@@ -61,7 +47,6 @@ export default function AboutCards() {
                   {card.description}
                 </p>
               </div>
-            </GlassSurface>
           ))}
         </div>
       </div>
