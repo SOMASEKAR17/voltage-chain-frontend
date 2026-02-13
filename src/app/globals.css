@@ -1,5 +1,11 @@
 @import "tailwindcss";
 
+
+@theme {
+  --font-avant: var(--font-avant-garde);
+}
+
+
 :root {
   --background: #ffffff;
   --foreground: #171717;
