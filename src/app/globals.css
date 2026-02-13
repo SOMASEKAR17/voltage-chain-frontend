@@ -56,11 +56,11 @@ body {
     font-weight: 600;
     margin-right: 30px;
     color: transparent;
-    -webkit-text-stroke: 2px #fff;
+    -webkit-text-stroke: 1px #fff;
     transition: all linear 0.4s;
     text-transform: uppercase;
 }
 .scroller h4:hover{
-    color: #03BB00;
-    -webkit-text-stroke: 2px #03BB00;
+    color: #33b831b4;
+    -webkit-text-stroke: 1px #33b831b4;
 }

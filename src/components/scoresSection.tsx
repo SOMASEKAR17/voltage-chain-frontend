@@ -16,9 +16,12 @@ export default function SaveScores() {
         
         
       </div>
-      <footer className="absolute border-t-1 -bottom-5 scale-x-110 bg-linear-to-t from-black via-black/70 to-transparent left-10 z-12 bg-black-70 w-full h-50">
-            <div className="-translate-y-20 -translate-x-30 scale-60">
+      <footer className="absolute border-t-1 flex items-center -bottom-5 scale-x-110 bg-linear-to-t from-black via-black/70 to-transparent left-10 z-12 bg-black-70 w-full h-50">
+            <div className=" -translate-y-10 -translate-x-25 scale-x-70">
                 <Scroller />
+            </div>
+            <div className="scale-x-90">
+                <img src="icon.svg" alt="" />
             </div>
         </footer>
       
