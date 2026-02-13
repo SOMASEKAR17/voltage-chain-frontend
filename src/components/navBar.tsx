@@ -5,6 +5,7 @@ import {GlassSurface} from "@/components"
 import { useRouter } from 'next/navigation'
 
 const NavBar = () => {
+  const router = useRouter()
   return (
     <nav className="w-full fixed z-30 pt-8 px-8 flex items-center justify-between">
         <GlassSurface
@@ -40,7 +41,7 @@ const NavBar = () => {
           opacity={0.1}
           mixBlendMode="screen"
         >
-            <button className="text-white font-medium hover:text-zinc-300 transition-colors">
+            <button onClick={() => router.push('/')} className="text-white font-medium hover:text-zinc-300 transition-colors">
               HOME
             </button>
             </GlassSurface>
@@ -58,7 +59,7 @@ const NavBar = () => {
           opacity={0.1}
           mixBlendMode="screen"
         >
-            <button className="text-white font-medium hover:text-zinc-300 transition-colors">
+            <button onClick={() => router.push('/dashboard')} className="text-white font-medium hover:text-zinc-300 transition-colors">
               DASHBOARD
             </button>
             </GlassSurface>
@@ -76,7 +77,7 @@ const NavBar = () => {
           opacity={0.1}
           mixBlendMode="screen"
         >
-            <button className="text-white font-medium hover:text-zinc-300 transition-colors">
+            <button onClick={() => router.push('/marketplace')} className="text-white font-medium hover:text-zinc-300 transition-colors">
               MARKETPLACE
             </button>
             </GlassSurface>
