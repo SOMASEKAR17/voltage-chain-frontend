@@ -33,11 +33,17 @@ const DashboardMain: React.FC = () => {
 
   return (
     <div className="flex min-h-screen overflow-hidden w-full">
-        <img src="dashboardBg.svg" className="h-screen w-full scale-x-125 fixed -z-1" alt="" />
+      <img
+        src="dashboardBg.svg"
+        className="h-screen w-full scale-x-125 fixed -z-10"
+        alt=""
+      />
       <DashboardSidebar activeNav={activeNav} setActiveNav={setActiveNav} />
 
       {/* Main Content Area */}
-      <div className="ml-64 flex-1 pt-24 px-8 pb-8">{renderContent()}</div>
+      <div className="ml-64 flex-1 pt-24 px-8 pb-8 relative z-0">
+        {renderContent()}
+      </div>
     </div>
   );
 };

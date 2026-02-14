@@ -10,6 +10,7 @@ import {
   LogOut,
   LayoutDashboard,
 } from "lucide-react";
+import Link from "next/link";
 
 interface DashboardSidebarProps {
   activeNav: string;
@@ -29,13 +30,19 @@ const DashboardSidebar: React.FC<DashboardSidebarProps> = ({
     { id: "contact", label: "Contact Us", icon: HelpCircle },
   ];
 
+  const externalLinks = [
+    { label: "Scan Battery", href: "/ocr", icon: "Scan" },
+    { label: "Health Status", href: "/health", icon: "Activity" },
+    { label: "NFT Management", href: "/nft", icon: "Zap" },
+  ];
+
   return (
-    <div className="w-64 h-[70vh] fixed left-0 top-[50%] -translate-y-[50%] rounded-3xl bg-black/60 backdrop-blur-md border-r border-cyan-400/20 ml-2 flex flex-col shadow">
+    <div className="w-64 h-screen fixed left-0 top-0 rounded-r-3xl bg-black/60 backdrop-blur-md border-r border-cyan-400/20 ml-0 flex flex-col shadow overflow-y-auto">
       <div className="flex-1 px-4 py-8">
-        <h2 className="font-avant  text-2xl italic font-semibold mb-8">
+        <h2 className="font-avant text-2xl italic font-semibold mb-8">
           DASHBOARD
         </h2>
-        <nav className="space-y-2">
+        <nav className="space-y-2 mb-8">
           {navItems.map((item) => {
             const Icon = item.icon;
             const isActive = activeNav === item.id;
@@ -55,6 +62,27 @@ const DashboardSidebar: React.FC<DashboardSidebarProps> = ({
             );
           })}
         </nav>
+
+        {/* External Links Section */}
+        <div className="border-t border-cyan-400/20 pt-6">
+          <p className="text-xs text-gray-500 font-avant uppercase mb-3 px-4">
+            Tools
+          </p>
+          <nav className="space-y-2">
+            {externalLinks.map((link) => (
+              <Link
+                key={link.href}
+                href={link.href}
+                className="w-full flex items-center gap-3 px-4 py-3 rounded-lg text-gray-300 hover:text-white hover:bg-cyan-400/10 transition-all"
+              >
+                <span className="w-5 h-5 flex items-center justify-center text-cyan-400">
+                  •
+                </span>
+                <span className="text-sm font-avant">{link.label}</span>
+              </Link>
+            ))}
+          </nav>
+        </div>
       </div>
 
       <div className="px-4 pb-8 border-t border-cyan-400/20 pt-4">

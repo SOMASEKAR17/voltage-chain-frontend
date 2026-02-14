@@ -106,34 +106,32 @@ const DashboardOverview: React.FC<DashboardOverviewProps> = ({
 }) => {
   return (
     <div className="w-full">
-      <div className="mb-8">
-        <h1 className="font-avant text-4xl text-white font-semibold mb-2">
+      <div className="mb-8 shadow w-[50%] pl-10 py-4 rounded-2xl">
+        <p className="font-avant text-4xl italic scale-y-110 text-white font-semibold mb-2">dashboard</p>
+        {/* <h1 className="font-avant text-4xl text-white font-semibold mb-2">
           Hello, {userName.split(" ")[0]}
         </h1>
-        <p className="text-gray-400">Welcome back to your dashboard</p>
+        <p className="text-gray-400">Welcome back to your dashboard.</p> */}
       </div>
 
-      <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 mb-8">
+        <h1 className="font-avant text-4xl text-white font-semibold mb-2">
+            Hello, {userName.split(" ")[0]} !
+        </h1>
+        <p className="text-gray-400 mb-8">Welcome back to your dashboard.</p>
+      <div className="grid grid-cols-1 lg:grid-cols-1 gap-6 mb-8">
         <AccountInfoCard
           name={userName}
           email={email}
           altEmail={altEmail}
           phone={phone}
         />
-        <BillingAddressCard />
       </div>
 
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-        <StatCard
-          value="154"
-          label="Total Batteries Bought"
-          icon="text-cyan-400"
-        />
-        <StatCard
-          value="149"
-          label="Total Batteries Listed"
-          icon="text-green-400"
-        />
+        
+        <BillingAddressCard />
+        
+        <BillingAddressCard />
       </div>
     </div>
   );
