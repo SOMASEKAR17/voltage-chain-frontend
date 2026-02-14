@@ -64,7 +64,7 @@ const ProductDetailPage = () => {
 
   if (loading) {
     return (
-      <div className="w-full min-h-screen bg-gradient-to-b from-gray-950 to-gray-900 flex items-center justify-center">
+      <div className="w-full min-h-screen font-avant text-2xl italic flex items-center justify-center">
         <div className="text-white text-xl">Loading product details...</div>
       </div>
     );
@@ -72,7 +72,7 @@ const ProductDetailPage = () => {
 
   if (!listing) {
     return (
-      <div className="w-full min-h-screen bg-gradient-to-b from-gray-950 to-gray-900 flex flex-col items-center justify-center">
+      <div className="w-full h-screen flex flex-col items-center justify-center">
         <h1 className="text-white text-3xl font-bold mb-4">
           Listing Not Found
         </h1>
@@ -93,34 +93,17 @@ const ProductDetailPage = () => {
     listing.images && listing.images.length > 0 ? listing.images : [];
 
   return (
-    <div className="w-full min-h-screen bg-gradient-to-b from-gray-950 to-gray-900">
-      {/* Header */}
-      <div className="sticky top-0 z-20 bg-black/80 backdrop-blur-md border-b border-cyan-400/20">
-        <div className="max-w-7xl mx-auto px-8 py-4 flex items-center justify-between">
-          <Link
-            href="/marketplace"
-            className="text-cyan-400 hover:text-cyan-300 flex items-center gap-2"
-          >
-            ← Back to Marketplace
-          </Link>
-          <span
-            className={`px-4 py-2 rounded-full text-sm font-bold ${
-              listing.status === "sold"
-                ? "bg-red-500/20 text-red-400"
-                : "bg-green-500/20 text-green-400"
-            }`}
-          >
-            {listing.status === "sold" ? "SOLD" : "AVAILABLE"}
-          </span>
-        </div>
-      </div>
-
-      {/* Main Content */}
-      <div className="max-w-7xl mx-auto px-8 py-12">
+    <div className="relative w-full min-h-screen font-avant overflow-hidden">
+      <img
+        src="dashboardBg.svg"
+        className="fixed scale-x-130 -z-10 w-full h-full object-cover"
+        alt="Background"
+      />
+      <div className="relative z-0 max-w-7xl mx-auto px-8 py-12">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
           {/* Image Gallery */}
           <div className="flex flex-col gap-4">
-            <div className="w-full aspect-square rounded-2xl overflow-hidden bg-gray-800 flex items-center justify-center border border-cyan-400/30">
+            <div className="w-full aspect-square rounded-2xl overflow-hidden flex items-center justify-center">
               <img
                 src={mainImage}
                 alt={listing.battery_code || "Battery"}
@@ -133,7 +116,7 @@ const ProductDetailPage = () => {
                 {displayImages.map((img, idx) => (
                   <button
                     key={img.id}
-                    className={`aspect-square rounded-lg overflow-hidden border-2 transition-all hover:border-cyan-400`}
+                    className={`aspect-square rounded-lg overflow-hidden -border2 transition-all hover:border-cyan-400`}
                   >
                     <img
                       src={img.image_url}
@@ -177,9 +160,9 @@ const ProductDetailPage = () => {
             </div>
 
             {/* Specifications */}
-            <div className="bg-gray-800/50 rounded-xl p-6 border border-cyan-400/20">
+            <div className="rounded-xl p-6 shadow">
               <h3 className="text-xl font-bold text-white mb-4 flex items-center gap-2">
-                <span className="text-cyan-400">⚡</span> Specifications
+                Specifications
               </h3>
 
               <div className="space-y-4">
@@ -236,9 +219,9 @@ const ProductDetailPage = () => {
             </div>
 
             {/* Verification Info */}
-            <div className="bg-gray-800/50 rounded-xl p-6 border border-cyan-400/20">
+            <div className="shadow rounded-xl p-6 border border-cyan-400/20">
               <h3 className="text-xl font-bold text-white mb-3 flex items-center gap-2">
-                <span className="text-cyan-400">🔍</span> Verification Status
+                Verification Status
               </h3>
               <div className="flex items-center justify-between">
                 <span className="text-gray-300">AI Verified</span>
