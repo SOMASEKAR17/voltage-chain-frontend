@@ -18,11 +18,20 @@ const MarketplaceContent = () => {
     const fetchListings = async () => {
       try {
         const response = await listingService.getListings();
-        if (response.success && response.data) {
+        console.log("[Marketplace] API Response:", response);
+
+        // Handle response with data property containing listings array
+        if (response && response.data && Array.isArray(response.data)) {
+          console.log("[Marketplace] Setting listings:", response.data);
           setListings(response.data);
+        } else {
+          console.warn("[Marketplace] Unexpected response format:", response);
         }
       } catch (error) {
-        toast.error(`Failed to fetch listings: ${error instanceof Error ? error.message : 'Unknown error'}`);
+        console.error("[Marketplace] Fetch error:", error);
+        toast.error(
+          `Failed to fetch listings: ${error instanceof Error ? error.message : "Unknown error"}`,
+        );
       } finally {
         setLoading(false);
       }
@@ -33,7 +42,9 @@ const MarketplaceContent = () => {
 
   return (
     <div className="w-full pt-20">
-      <h1 className="text-4xl w-[50vw] px-10 py-5 rounded-2xl font-avant leading-tight shadow text-white mb-8">MARKETPLACE</h1>
+      <h1 className="text-4xl w-[50vw] px-10 py-5 rounded-2xl font-avant leading-tight shadow text-white mb-8">
+        MARKETPLACE
+      </h1>
 
       <SearchBar />
 
@@ -49,9 +60,9 @@ const MarketplaceContent = () => {
         {/* Products Grid */}
         <div className="lg:col-span-3">
           {loading ? (
-             <div className="text-white">Loading...</div>
+            <div className="text-white">Loading...</div>
           ) : (
-             <ProductGrid listings={listings} />
+            <ProductGrid listings={listings} />
           )}
         </div>
       </div>

@@ -20,7 +20,20 @@ export async function fetchAPI<T>(endpoint: string, options: FetchOptions = {}):
   };
 
   try {
-    const response = await fetch(url, config);
+    console.log(`[API] Fetching: ${url}`);
+    
+    const fetchConfig: RequestInit = {
+      ...config,
+      mode: 'cors',
+      credentials: 'omit',
+      headers: {
+        ...config.headers,
+      },
+    };
+    
+    const response = await fetch(url, fetchConfig);
+    
+    console.log(`[API] Response status: ${response.status}`);
     
     // Handle 404, 500 etc
     if (!response.ok) {
@@ -34,9 +47,10 @@ export async function fetchAPI<T>(endpoint: string, options: FetchOptions = {}):
     }
 
     const data = await response.json();
+    console.log(`[API] Response:`, data);
     return data;
   } catch (error) {
-    console.error(`API Error code: ${endpoint}`, error);
+    console.error(`[API] Error for ${endpoint}:`, error);
     throw error;
   }
 }

@@ -22,14 +22,15 @@ export interface Listing {
   id: string;
   battery_id: string;
   battery_code?: string;
-  brand?: string;
+  brand: string;
   price: number;
   predicted_voltage?: number;
   user_voltage?: number;
   health_score?: number;
   status: 'draft' | 'active' | 'sold';
   ai_verified: boolean;
-  images: ListingImage[];
+  images?: ListingImage[];
+  created_at?: string;
 }
 
 export interface ApiResponse<T> {
