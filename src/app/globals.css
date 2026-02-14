@@ -77,3 +77,32 @@ body {
     0 0.3em 0.1em rgba(0, 0, 0, 0.305),
     0 0 0.15em inset rgba(255, 255, 255, 0.04);
 }
+
+.glass-scrollbar-bold::-webkit-scrollbar-button {
+  width: 0px;
+}
+
+.glass-scrollbar-bold {
+  scrollbar-width: auto;
+  scrollbar-color: rgba(255, 255, 255, 0.5) rgba(255, 255, 255, 0);
+}
+
+.glass-scrollbar-bold::-webkit-scrollbar {
+  width: 10px;
+}
+
+.glass-scrollbar-bold::-webkit-scrollbar-track {
+  background: rgba(255, 255, 255, 0);
+  border-radius: 999px;
+  margin: 10px 0;
+}
+
+.glass-scrollbar-bold::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.8);
+  border-radius: 6px;
+  min-height: 36px;
+}
+
+.glass-scrollbar-bold::-webkit-scrollbar-thumb:hover {
+  background: rgba(255, 255, 255, 1);
+}

@@ -25,7 +25,7 @@ const DashboardSidebar: React.FC<DashboardSidebarProps> = ({
     { id: "dashboard", label: "Dashboard", icon: LayoutDashboard },
     { id: "account", label: "Account Details", icon: User },
     { id: "list-battery", label: "List a Battery", icon: Battery },
-    { id: "swap-order", label: "Swap/Order", icon: ArrowRightLeft },
+    { id: "Track-order", label: "Track-order", icon: ArrowRightLeft },
     { id: "my-orders", label: "My Orders", icon: ShoppingCart },
     { id: "contact", label: "Contact Us", icon: HelpCircle },
   ];
@@ -37,7 +37,7 @@ const DashboardSidebar: React.FC<DashboardSidebarProps> = ({
   ];
 
   return (
-    <div className="w-64 h-screen fixed left-0 top-0 rounded-r-3xl bg-black/60 backdrop-blur-md border-r border-cyan-400/20 ml-0 flex flex-col shadow overflow-y-auto">
+    <div className="w-64 h-[70vh] mt-30 ml-5 glass-scrollbar-bold fixed left-0 top-0 rounded-3xl bg-black/60 backdrop-blur-md border-r border-cyan-400/20 ml-0 flex flex-col shadow overflow-y-auto">
       <div className="flex-1 px-4 py-8">
         <h2 className="font-avant text-2xl italic font-semibold mb-8">
           DASHBOARD

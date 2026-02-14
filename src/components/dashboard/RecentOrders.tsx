@@ -16,24 +16,7 @@ const RecentOrders: React.FC = () => {
       date: "Dec 30, 2019 09:10",
       total: "$1,500 (5 Products)",
     },
-    {
-      orderId: "#71667787",
-      status: "COMPLETED",
-      date: "Feb 2, 2019 19:28",
-      total: "$80 (1 Product)",
-    },
-    {
-      orderId: "#85214362",
-      status: "CANCELLED",
-      date: "Mar 20, 2019 23:14",
-      total: "$160 (3 Products)",
-    },
-    {
-      orderId: "#71667787",
-      status: "COMPLETED",
-      date: "Feb 2, 2019 19:28",
-      total: "$80 ( 1 Product)",
-    },
+   
     {
       orderId: "#85214268",
       status: "COMPLETED",
@@ -46,12 +29,7 @@ const RecentOrders: React.FC = () => {
       date: "Dec 30, 2019 07:52",
       total: "$70 (1 Product)",
     },
-    {
-      orderId: "#6739171343",
-      status: "COMPLETED",
-      date: "Dec 7, 2019 23:25",
-      total: "$220 (1 Product)",
-    },
+
   ];
 
   const getStatusColor = (status: Order["status"]) => {
@@ -90,9 +68,6 @@ const RecentOrders: React.FC = () => {
                 <th className="px-6 py-4 text-left text-cyan-400 font-semibold text-sm">
                   TOTAL
                 </th>
-                <th className="px-6 py-4 text-left text-cyan-400 font-semibold text-sm">
-                  ACTION
-                </th>
               </tr>
             </thead>
             <tbody>
@@ -114,12 +89,6 @@ const RecentOrders: React.FC = () => {
                   </td>
                   <td className="px-6 py-4 text-white text-sm">
                     {order.total}
-                  </td>
-                  <td className="px-6 py-4">
-                    <button className="flex items-center gap-2 text-cyan-400 hover:text-cyan-300 transition-colors text-sm font-semibold">
-                      View Details
-                      <ChevronRight className="w-4 h-4" />
-                    </button>
                   </td>
                 </tr>
               ))}

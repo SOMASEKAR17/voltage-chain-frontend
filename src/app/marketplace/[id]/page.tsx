@@ -3,7 +3,7 @@ import React, { useEffect, useState } from "react";
 import { useParams } from "next/navigation";
 import toast from "react-hot-toast";
 import { listingService } from "@/services/listingService";
-import { Listing, ApiResponse } from "@/types/api.types";
+import { Listing } from "@/types/api.types";
 import Link from "next/link";
 
 const ProductDetailPage = () => {
@@ -28,7 +28,9 @@ const ProductDetailPage = () => {
       } catch (error) {
         console.error("[Product Detail] Fetch error:", error);
         toast.error(
-          `Failed to load listing: ${error instanceof Error ? error.message : "Unknown error"}`,
+          `Failed to load listing: ${
+            error instanceof Error ? error.message : "Unknown error"
+          }`,
         );
       } finally {
         setLoading(false);
@@ -55,7 +57,9 @@ const ProductDetailPage = () => {
     } catch (error) {
       console.error("[Product Detail] Buy error:", error);
       toast.error(
-        `Failed to complete purchase: ${error instanceof Error ? error.message : "Unknown error"}`,
+        `Failed to complete purchase: ${
+          error instanceof Error ? error.message : "Unknown error"
+        }`,
       );
     } finally {
       setBuyingLoading(false);
@@ -64,19 +68,20 @@ const ProductDetailPage = () => {
 
   if (loading) {
     return (
-      <div className="w-full min-h-screen font-avant text-2xl italic flex items-center justify-center">
-        <div className="text-white text-xl">Loading product details...</div>
+      <div className="w-full min-h-screen font-avant flex items-center justify-center bg-black text-white">
+        Loading product details...
       </div>
     );
   }
 
   if (!listing) {
     return (
-      <div className="w-full h-screen flex flex-col items-center justify-center">
-        <h1 className="text-white text-3xl font-bold mb-4">
-          Listing Not Found
-        </h1>
-        <Link href="/marketplace" className="text-cyan-400 hover:text-cyan-300">
+      <div className="w-full min-h-screen flex flex-col items-center justify-center bg-black text-white">
+        <h1 className="text-3xl font-bold mb-4">Listing Not Found</h1>
+        <Link
+          href="/marketplace"
+          className="text-cyan-400 hover:text-cyan-300 transition"
+        >
           Back to Marketplace
         </Link>
       </div>
@@ -93,17 +98,20 @@ const ProductDetailPage = () => {
     listing.images && listing.images.length > 0 ? listing.images : [];
 
   return (
-    <div className="relative w-full min-h-screen font-avant overflow-hidden">
-      <img
-        src="dashboardBg.svg"
-        className="fixed scale-x-130 -z-10 w-full h-full object-cover"
-        alt="Background"
-      />
-      <div className="relative z-0 max-w-7xl mx-auto px-8 py-12">
+    <div className="relative w-full min-h-screen font-avant overflow-hidden text-white">
+      
+      {/* Background */}
+      <div className="fixed inset-0 -z-10">
+        <div className="absolute inset-0 bg-[url('/dashboardBg.svg')] bg-cover bg-center opacity-20" />
+        <div className="absolute inset-0 bg-gradient-to-b from-black via-black/80 to-black" />
+      </div>
+
+      <div className="max-w-7xl mx-auto px-6 py-16 relative z-10">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
+
           {/* Image Gallery */}
           <div className="flex flex-col gap-4">
-            <div className="w-full aspect-square rounded-2xl overflow-hidden flex items-center justify-center">
+            <div className="w-full aspect-square rounded-3xl overflow-hidden shadow-2xl border border-cyan-400/20">
               <img
                 src={mainImage}
                 alt={listing.battery_code || "Battery"}
@@ -112,11 +120,11 @@ const ProductDetailPage = () => {
             </div>
 
             {displayImages.length > 1 && (
-              <div className="grid grid-cols-4 gap-2">
+              <div className="grid grid-cols-4 gap-3">
                 {displayImages.map((img, idx) => (
                   <button
                     key={img.id}
-                    className={`aspect-square rounded-lg overflow-hidden -border2 transition-all hover:border-cyan-400`}
+                    className="aspect-square rounded-lg overflow-hidden border border-transparent hover:border-cyan-400 transition-all"
                   >
                     <img
                       src={img.image_url}
@@ -131,28 +139,26 @@ const ProductDetailPage = () => {
 
           {/* Product Details */}
           <div className="flex flex-col gap-8">
-            {/* Header Info */}
-            <div className="flex flex-col gap-4">
-              <div>
-                <h1 className="text-4xl font-bold text-white mb-2">
-                  {listing.brand}
-                </h1>
-                <p className="text-cyan-400 text-lg">
-                  Battery Code: {listing.battery_code}
-                </p>
-              </div>
 
-              {/* AI Verified Badge */}
+            {/* Header */}
+            <div>
+              <h1 className="text-4xl font-bold mb-2">
+                {listing.brand}
+              </h1>
+              <p className="text-cyan-400 text-lg">
+                Battery Code: {listing.battery_code}
+              </p>
+
               {listing.ai_verified && (
-                <div className="flex items-center gap-2 text-green-400 bg-green-500/10 px-4 py-2 rounded-lg w-fit">
-                  <span className="text-2xl">✓</span>
+                <div className="mt-4 flex items-center gap-2 text-green-400 bg-green-500/10 px-4 py-2 rounded-lg w-fit">
+                  <span className="text-xl">✓</span>
                   <span className="font-semibold">AI Verified</span>
                 </div>
               )}
             </div>
 
-            {/* Price Section */}
-            <div className="border-t border-b border-cyan-400/20 py-6">
+            {/* Price */}
+            <div className="border-y border-cyan-400/20 py-6">
               <div className="text-gray-400 text-sm mb-2">Price</div>
               <div className="text-5xl font-bold text-cyan-400">
                 ${listing.price.toFixed(2)}
@@ -160,10 +166,8 @@ const ProductDetailPage = () => {
             </div>
 
             {/* Specifications */}
-            <div className="rounded-xl p-6 shadow">
-              <h3 className="text-xl font-bold text-white mb-4 flex items-center gap-2">
-                Specifications
-              </h3>
+            <div className="rounded-2xl p-6 backdrop-blur-xl bg-black/40 border border-cyan-400/20 shadow-xl">
+              <h3 className="text-xl font-bold mb-4">Specifications</h3>
 
               <div className="space-y-4">
                 {listing.health_score !== undefined && (
@@ -176,13 +180,13 @@ const ProductDetailPage = () => {
                             listing.health_score >= 80
                               ? "bg-green-500"
                               : listing.health_score >= 60
-                                ? "bg-yellow-500"
-                                : "bg-red-500"
+                              ? "bg-yellow-500"
+                              : "bg-red-500"
                           }`}
                           style={{ width: `${listing.health_score}%` }}
                         />
                       </div>
-                      <span className="text-white font-bold w-12 text-right">
+                      <span className="font-bold w-12 text-right">
                         {listing.health_score.toFixed(1)}%
                       </span>
                     </div>
@@ -190,40 +194,34 @@ const ProductDetailPage = () => {
                 )}
 
                 {listing.user_voltage !== undefined && (
-                  <div className="flex items-center justify-between">
+                  <div className="flex justify-between">
                     <span className="text-gray-300">User Voltage</span>
-                    <span className="text-white font-semibold">
-                      {listing.user_voltage.toFixed(2)}V
-                    </span>
+                    <span>{listing.user_voltage.toFixed(2)}V</span>
                   </div>
                 )}
 
                 {listing.predicted_voltage !== undefined && (
-                  <div className="flex items-center justify-between">
+                  <div className="flex justify-between">
                     <span className="text-gray-300">Predicted Voltage</span>
-                    <span className="text-white font-semibold">
-                      {listing.predicted_voltage.toFixed(2)}V
-                    </span>
+                    <span>{listing.predicted_voltage.toFixed(2)}V</span>
                   </div>
                 )}
 
                 {listing.battery_code && (
-                  <div className="flex items-center justify-between">
+                  <div className="flex justify-between">
                     <span className="text-gray-300">Battery Code</span>
-                    <span className="text-white font-mono">
-                      {listing.battery_code}
-                    </span>
+                    <span className="font-mono">{listing.battery_code}</span>
                   </div>
                 )}
               </div>
             </div>
 
-            {/* Verification Info */}
-            <div className="shadow rounded-xl p-6 border border-cyan-400/20">
-              <h3 className="text-xl font-bold text-white mb-3 flex items-center gap-2">
+            {/* Verification */}
+            <div className="rounded-2xl p-6 backdrop-blur-xl bg-black/40 border border-cyan-400/20 shadow-xl">
+              <h3 className="text-xl font-bold mb-3">
                 Verification Status
               </h3>
-              <div className="flex items-center justify-between">
+              <div className="flex justify-between">
                 <span className="text-gray-300">AI Verified</span>
                 <span
                   className={`px-3 py-1 rounded-full text-sm font-bold ${
@@ -237,7 +235,7 @@ const ProductDetailPage = () => {
               </div>
             </div>
 
-            {/* Action Buttons */}
+            {/* Actions */}
             <div className="flex gap-4 pt-4">
               <button
                 onClick={handleBuy}
@@ -251,8 +249,8 @@ const ProductDetailPage = () => {
                 {buyingLoading
                   ? "Processing..."
                   : listing.status === "sold"
-                    ? "Sold Out"
-                    : "Buy Now"}
+                  ? "Sold Out"
+                  : "Buy Now"}
               </button>
 
               <button className="px-6 py-3 rounded-lg border border-cyan-400 text-cyan-400 hover:bg-cyan-400/10 transition-all font-bold">
@@ -260,10 +258,10 @@ const ProductDetailPage = () => {
               </button>
             </div>
 
-            {/* Created Date */}
             {listing.created_at && (
               <div className="text-gray-500 text-sm text-center pt-4 border-t border-gray-800">
-                Listed on {new Date(listing.created_at).toLocaleDateString()}
+                Listed on{" "}
+                {new Date(listing.created_at).toLocaleDateString()}
               </div>
             )}
           </div>

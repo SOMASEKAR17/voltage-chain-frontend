@@ -45,12 +45,12 @@ const AccountDetails: React.FC = () => {
   };
 
   return (
-    <div className="w-full">
-      <h2 className="font-avant text-2xl text-white font-semibold mb-6">
+    <div className="w-full ">
+      <h2 className="font-avant text-center mt-7 text-2xl text-white font-semibold mb-6">
         Account Details
       </h2>
 
-      <div className="shadow border-black rounded-2xl p-8 max-w-2xl">
+      <div className="shadow mx-auto border-black rounded-2xl p-8 max-w-2xl">
         <div className="space-y-6">
           <div>
             <label className="block text-gray-300 text-sm font-avant font-semibold mb-2">
@@ -139,7 +139,7 @@ const AccountDetails: React.FC = () => {
         </div>
       </div>
 
-      <div className="shadow border-black rounded-2xl p-8 max-w-2xl mt-8">
+      <div className="shadow mx-auto border-black rounded-2xl p-8 max-w-2xl mt-8">
         <h3 className="font-avant text-xl text-white font-semibold mb-6">
           Change Password
         </h3>

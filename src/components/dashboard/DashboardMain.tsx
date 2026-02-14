@@ -20,7 +20,7 @@ const DashboardMain: React.FC = () => {
         return <AccountDetails />;
       case "list-battery":
         return <ListBattery />;
-      case "swap-order":
+      case "Track-order":
         return <SwapOrder />;
       case "my-orders":
         return <RecentOrders />;

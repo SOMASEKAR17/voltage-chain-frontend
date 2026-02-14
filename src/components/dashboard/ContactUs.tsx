@@ -37,7 +37,7 @@ const ContactUs: React.FC = () => {
         </div>
       </div>
 
-      <div className="shadow border-black rounded-2xl p-8 max-w-2xl">
+      <div className="shadow border-black mx-auto rounded-2xl p-8 max-w-2xl">
         <h3 className="font-avant text-xl text-white font-semibold mb-6">
           Send us a Message
         </h3>
